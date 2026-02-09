@@ -1,50 +1,46 @@
-import { Link } from "@heroui/link";
-import {
-  Navbar as HeroUINavbar,
-  NavbarContent,
-  NavbarItem,
-} from "@heroui/navbar";
-import { link as linkStyles } from "@heroui/theme";
-import clsx from "clsx";
-import { Home, FolderKanban, Briefcase } from "lucide-react";
+import { Flex, Link } from "@chakra-ui/react";
+import { useLocation } from "react-router-dom";
 
 import { siteConfig } from "@/config/site";
 
-const navIcons: Record<string, React.ReactNode> = {
-  Home: <Home size={18} />,
-  Projects: <FolderKanban size={18} />,
-  Experience: <Briefcase size={18} />,
-};
-
 export const Navbar = () => {
+  const location = useLocation();
+
   return (
-    <HeroUINavbar
-      classNames={{
-        base: "justify-center",
-        wrapper: "justify-center",
-      }}
-      maxWidth="full"
-      position="sticky"
-    >
-      <NavbarContent className="flex-grow-0" justify="center">
-        <div className="flex gap-6">
-          {siteConfig.navItems.map((item) => (
-            <NavbarItem key={item.href}>
-              <Link
-                className={clsx(
-                  linkStyles({ color: "foreground" }),
-                  "data-[active=true]:text-primary data-[active=true]:font-medium flex items-center gap-2",
-                )}
-                color="foreground"
-                href={item.href}
-              >
-                {navIcons[item.label]}
-                <span className="hidden sm:inline">{item.label}</span>
-              </Link>
-            </NavbarItem>
-          ))}
-        </div>
-      </NavbarContent>
-    </HeroUINavbar>
+    <Flex as="nav" justify="center" pt={6} pb={2}>
+      <Flex
+        bg="white"
+        borderRadius="16px"
+        px={4}
+        py={3}
+        gap={2}
+        boxShadow={"md"}
+      >
+        {siteConfig.navItems.map((item) => {
+          const isActive = location.pathname === item.href;
+
+          return (
+            <Link
+              key={item.href}
+              href={item.href}
+              px={5}
+              py={1.5}
+              borderRadius="full"
+              fontSize="lg"
+              fontWeight="semibold"
+              bg={isActive ? "#DBE8EE" : "transparent"}
+              color="#595858"
+              boxShadow={isActive ? "sm" : "none"}
+              _hover={{
+                textDecoration: "none",
+                bg: isActive ? "gray.200" : "#DBE8EE",
+              }}
+            >
+              {item.label}
+            </Link>
+          );
+        })}
+      </Flex>
+    </Flex>
   );
 };
