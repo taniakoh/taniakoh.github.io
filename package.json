@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@chakra-ui/react": "^3.32.0",
+    "@emotion/react": "^11.14.0",
     "@heroui/button": "2.2.29",
     "@heroui/card": "^2.2.27",
     "@heroui/code": "2.2.22",
@@ -31,6 +33,7 @@
     "clsx": "2.1.1",
     "framer-motion": "11.18.2",
     "lucide-react": "^0.563.0",
+    "next-themes": "^0.4.6",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-icons": "^5.5.0",
@@ -62,6 +65,6 @@
     "prettier": "3.5.3",
     "typescript": "5.6.3",
     "vite": "6.0.11",
-    "vite-tsconfig-paths": "5.1.4"
+    "vite-tsconfig-paths": "^5.1.4"
   }
 }

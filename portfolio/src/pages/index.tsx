@@ -22,53 +22,6 @@ import { FaLinkedin } from "react-icons/fa";
 
 export default function IndexPage() {
   return (
-    <DefaultLayout>
-      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-        <Image isZoomed radius="full" width={200} height={200} src="/profile.jpg"/>
-        <div className="max-w-lg text-center justify-center">
-          <span className={title()}>Tania Koh<br></br></span>
-          <p className={title({ color: "cyan" })}> Full Stack Application Developer and Designer</p>
-          <br />
-
-          <div className={subtitle({ class: "mt-4" })}>
-            Final Year Computer Science Graduate with Minor in Artificial Intelligence
-          </div>
-        </div>
-        <Button 
-        size="lg"
-        className={buttonStyles({
-              color: "primary",
-              radius: "full",
-              variant: "ghost",
-            })}>
-          Download Resume
-        </Button>
-
-        <div className="flex gap-3">
-          <Link
-            isExternal
-            className={buttonStyles({
-              color: "primary",
-              radius: "full",
-              variant: "shadow",
-            })}
-            href={siteConfig.links.docs}
-          >
-            <FaLinkedin size={20} />
-            LinkedIn
-          </Link>
-          <Link
-            isExternal
-            className={buttonStyles({ variant: "bordered", radius: "full" })}
-            href={siteConfig.links.github}
-          >
-            <GithubIcon size={20} />
-            GitHub
-          </Link>
-        </div>
-
-       
-      </section>
-    </DefaultLayout>
+   <p>hi</p>
   );
 }
