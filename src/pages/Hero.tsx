@@ -5,7 +5,6 @@ import {
   Grid,
   GridItem,
   Card,
-  Image,
   Link,
   Icon,
   Button,
@@ -29,9 +28,14 @@ const cardVariant = {
   show: { opacity: 1, x: 0, transition: { duration: 0.45, ease: "easeOut" } },
 };
 
+const profileImageVariants = {
+  rest: { scale: 1 },
+  hover: { scale: 1.08, transition: { duration: 0.35, ease: "easeOut" } },
+};
+
 export default function HeroSection() {
   return (
-      <Grid templateColumns="1fr 2fr" gap={6} p={6} alignItems="stretch" height={{md:"580px"}}>
+      <Grid templateColumns={{ base: "1fr", lg: "1fr 2fr" }} gap={6} p={6} alignItems="stretch" height={{ lg: "580px" }}>
         {/* Left column - Profile */}
         <MotionGridItem
           display="flex"
@@ -39,31 +43,55 @@ export default function HeroSection() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <Card.Root variant="elevatedblue" h="100%" w="100%" p={4}>
+          <MotionCard
+            variant="elevatedblue"
+            h="100%"
+            w="100%"
+            p={{ base: 2, md: 4 }}
+            initial="rest"
+            animate="rest"
+            whileHover="hover"
+          >
             <Card.Body h="100%">
               <VStack gap={4} h="100%">
-                <Image
-                  src="/profile.jpg"
-                  alt="Tania Koh"
-                  borderRadius="full"
-                  boxSize="200px"
-                  objectFit="cover"
-                  border="6px solid #FFF4E5"
-                  boxShadow="0px 4px 44.7px 49px #FFF8F5"
-                />
+                {/* Clipping container so zoom stays within the circle */}
+                <motion.div
+                  style={{
+                    borderRadius: "9999px",
+                    overflow: "hidden",
+                    width: "200px",
+                    height: "200px",
+                    border: "6px solid #FFF4E5",
+                    boxShadow: "0px 4px 44.7px 49px #FFF8F5",
+                    flexShrink: 0,
+                  }}
+                >
+                  <motion.img
+                    src="/profile.jpg"
+                    alt="Tania Koh"
+                    variants={profileImageVariants}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      display: "block",
+                    }}
+                  />
+                </motion.div>
+
                 <VStack gap={1}>
-                  <Text fontSize="4xl"  color="#005E8A" fontWeight="bold">
+                  <Text fontSize={{ base: "3xl", md: "4xl" }} color="#005E8A" fontWeight="bold">
                     TANIA KOH
                   </Text>
-                  <Text fontSize="xl" color="#005E8A" fontWeight="semibold">
+                  <Text fontSize={{ base: "lg", md: "xl" }} color="#005E8A" fontWeight="semibold">
                     Software Engineer
                   </Text>
-                  <Text fontSize="lg" color="#828282">
+                  <Text fontSize={{ base: "md", md: "lg" }} color="#828282">
                     Fullstack | UI/UX | AI
                   </Text>
                 </VStack>
                 <Text
-                  fontSize="lg"
+                  fontSize={{ base: "md", md: "lg" }}
                   color="#ADADAD"
                   letterSpacing="widest"
                   fontWeight="light"
@@ -74,7 +102,7 @@ export default function HeroSection() {
                 </Text>
               </VStack>
             </Card.Body>
-          </Card.Root>
+          </MotionCard>
         </MotionGridItem>
 
         {/* Right column - Info cards */}
@@ -86,9 +114,9 @@ export default function HeroSection() {
         >
           <VStack gap={6} h="100%" w="100%">
             {/* Bio card */}
-            <MotionCard variants={cardVariant} variant="elevatedwhite" w="100%" flex={1} px={12} py={2}>
+            <MotionCard variants={cardVariant} variant="elevatedwhite" w="100%" flex={1} px={{ base: 2, md: 12 }} py={2}>
               <Card.Body>
-                <Text fontSize="lg" color="#595858" lineHeight="2.1" fontWeight="light">
+                <Text fontSize={{ base: "md", md: "lg" }} color="#595858" lineHeight="2.1" fontWeight="light">
                   i like exploring my creativity and analytical thinking by
                   connecting with people to make a{" "}
                   <Text as="span" fontWeight="bold" textDecoration="underline">
@@ -102,20 +130,20 @@ export default function HeroSection() {
             </MotionCard>
 
             {/* Location / Education card */}
-            <MotionCard variants={cardVariant} px={12} py={2} variant="elevatedwhite" w="100%" flex={1}>
-              <Card.Body >
+            <MotionCard variants={cardVariant} px={{ base: 2, md: 12 }} py={2} variant="elevatedwhite" w="100%" flex={1}>
+              <Card.Body>
                   <VStack gap={6} align="start">
                     <HStack>
                       <Icon w={"32px"} h={"32px"} color="#005E8A">
-                        <HiMapPin  />
+                        <HiMapPin />
                       </Icon>
-                      <Text fontSize="lg" color="#595858" fontWeight={"light"}>
+                      <Text fontSize={{ base: "md", md: "lg" }} color="#595858" fontWeight={"light"}>
                       Y4 @ Singapore University of Technology and Design
                       (SUTD)
                     </Text>
                     </HStack>
 
-                    <Text fontSize="lg" color="#005E8A" fontWeight="medium" alignSelf={"end"}>
+                    <Text fontSize={{ base: "md", md: "lg" }} color="#005E8A" fontWeight="medium" alignSelf={"end"}>
                       Bachelor's in Computer Science, Minor in AI
                     </Text>
                   </VStack>
@@ -123,33 +151,43 @@ export default function HeroSection() {
             </MotionCard>
 
             {/* Social links card */}
-            <MotionCard variants={cardVariant} px={12} py={2} variant="elevatedwhite" w="100%" flex={1} justifyContent={"center"}>
+            <MotionCard variants={cardVariant} px={{ base: 2, md: 12 }} py={2} variant="elevatedwhite" w="100%" flex={1} justifyContent={{base:"center", md:"start"}}>
               <Card.Body>
-                <HStack gap={12} align="center">
-                  <Link href="https://www.linkedin.com/in/tania-koh-tze-ern/" target="_blank">
-
-                    <Icon w={"48px"} h={"48px"} color="#005E8A">
+                <HStack gap={{ base: 4, md: 12 }} align="center" justifyContent={{base:"center", md:"start"}}>
+                  <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.2 }}>
+                    <Link href="https://www.linkedin.com/in/tania-koh-tze-ern/" target="_blank">
+                      <Icon w={{base:"32px",md:"48px"}} h={{base:"32px",md:"48px"}} color="#005E8A">
                         <FaLinkedin />
                       </Icon>
-                  </Link>
-                  <Link href="https://github.com/taniakoh" target="_blank">
-                    <Icon w={"48px"} h={"48px"} color="#005E8A">
-                      <FaGithub />
-                    </Icon>
-                  </Link>
-                  <Link href="mailto:taniakohtzeern@gmail.com">
-                    <Icon w={"48px"} h={"48px"} color="#005E8A">
-                      <FaEnvelope />
-                    </Icon>
-                  </Link>
+                    </Link>
+                  </motion.div>
+
+                  <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.2 }}>
+                    <Link href="https://github.com/taniakoh" target="_blank">
+                      <Icon w={{base:"32px",md:"48px"}} h={{base:"32px",md:"48px"}} color="#005E8A">
+                        <FaGithub />
+                      </Icon>
+                    </Link>
+                  </motion.div>
+
+                  <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.2 }}>
+                    <Link href="mailto:taniakohtzeern@gmail.com">
+                      <Icon w={{base:"32px",md:"48px"}} h={{base:"32px",md:"48px"}} color="#005E8A">
+                        <FaEnvelope />
+                      </Icon>
+                    </Link>
+                  </motion.div>
 
                   <Separator orientation="vertical" h="48px" />
-                  <Button asChild variant="elevated" size="lg">
-                    <a href="/resume.pdf" download="Tania_Koh_Resume.pdf" rel="noreferrer">
-                      <Download size={16} />
-                      resume
-                    </a>
-                  </Button>
+
+                  <motion.div whileHover={{ scale: 1.08 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.2 }}>
+                    <Button asChild variant="elevated" size={{ base: "sm", md: "lg" }}>
+                      <a href="/resume.pdf" download="Tania_Koh_Resume.pdf" rel="noreferrer">
+                        <Download size={16} />
+                        resume
+                      </a>
+                    </Button>
+                  </motion.div>
                 </HStack>
               </Card.Body>
             </MotionCard>

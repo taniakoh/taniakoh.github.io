@@ -23,7 +23,7 @@ export default function IndexPage() {
         display="flex"
         alignItems="center"
         py={6}
-        px={16}
+        px={{ base: 4, md: 16 }}
       >
         <ExperiencesSection />
       </Box>

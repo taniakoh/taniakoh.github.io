@@ -7,7 +7,7 @@ export const Navbar = () => {
   const location = useLocation();
 
   return (
-    <Flex as="nav" justify="center" pt={6} pb={2}>
+    <Flex as="nav" justify="center" pt={6} pb={2} position="sticky" top={0} zIndex={10}>
       <Flex
         bg="white"
         borderRadius="16px"

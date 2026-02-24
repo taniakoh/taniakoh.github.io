@@ -23,7 +23,7 @@ const cardVariant = {
 
 export default function ExperiencesSection() {
   return (
-    <Card.Root variant="elevatedwhite" h="100%" w="100%" p={12}>
+    <Card.Root variant="elevatedwhite" h="100%" w="100%" p={{ base: 4, md: 12 }}>
       <Card.Header
         textAlign="center"
         color="#595858"
@@ -41,7 +41,7 @@ export default function ExperiencesSection() {
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
         >
-          <MotionCard variants={cardVariant} variant="elevatedwhite" h="100%" w="100%" p={4}>
+          <MotionCard variants={cardVariant} variant="elevatedwhite" h="100%" w="100%" p={{ base:2, md: 4 }}>
             <Card.Body h="100%">
               <VStack
                 gap={4}
