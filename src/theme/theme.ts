@@ -1,5 +1,6 @@
 import { Card, createSystem, defaultConfig, defineConfig } from "@chakra-ui/react"
 import { cardSlotRecipe } from "./card.recipe"
+import { buttonRecipe } from "./button.recipe"
 
 const config = defineConfig({
   theme: {
@@ -11,6 +12,9 @@ const config = defineConfig({
     },
     slotRecipes: {
       card: cardSlotRecipe,
+    },
+    recipes: {
+      button: buttonRecipe,
     },
   },
 })
