@@ -8,11 +8,10 @@ export default function DefaultLayout({
   children: React.ReactNode;
 }) {
   return (
-    <Stack justifySelf="center" className="relative flex flex-col h-screen">
+    <Stack justifySelf="center" className="relative flex flex-col min-h-screen">
       <Navbar />
       <main
-        className="container mx-auto max-w-7xl px-6 flex-grow overflow-y-scroll"
-        style={{ scrollSnapType: "y mandatory" }}
+        className="container mx-auto max-w-7xl px-6 flex-grow"
       >
         {children}
       </main>
