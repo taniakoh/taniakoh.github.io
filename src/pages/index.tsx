@@ -1,23 +1,7 @@
 import DefaultLayout from "@/layouts/default";
-import {
-  VStack,
-  Text,
-  HStack,
-  Grid,
-  GridItem,
-  Card,
-  Image,
-  Link,
-  Icon,
-  Button,
-  Separator,
-  Box
-} from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import HeroSection from "./Hero";
 import ExperiencesSection from "./Experiences";
-import { MapPin, Download, Box as BoxIcon} from "lucide-react";
-import { HiMapPin } from "react-icons/hi2";
-import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 
 export default function IndexPage() {
   return (

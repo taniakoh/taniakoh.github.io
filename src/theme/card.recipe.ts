@@ -1,4 +1,3 @@
-import { defineRecipe } from "@chakra-ui/react"
 import { defineSlotRecipe } from "@chakra-ui/react"
 import { cardAnatomy } from "@chakra-ui/react/anatomy"
 export const cardSlotRecipe = defineSlotRecipe({

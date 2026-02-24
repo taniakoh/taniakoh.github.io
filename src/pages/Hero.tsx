@@ -1,4 +1,3 @@
-import DefaultLayout from "@/layouts/default";
 import {
   VStack,
   Text,
@@ -11,10 +10,8 @@ import {
   Icon,
   Button,
   Separator,
-  Box
 } from "@chakra-ui/react";
-import ExperiencesSection from "./Experiences";
-import { MapPin, Download, Box as BoxIcon} from "lucide-react";
+import { Download } from "lucide-react";
 import { HiMapPin } from "react-icons/hi2";
 import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 

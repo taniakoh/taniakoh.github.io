@@ -1,4 +1,4 @@
-import { Card, createSystem, defaultConfig, defineConfig } from "@chakra-ui/react"
+import { createSystem, defaultConfig, defineConfig } from "@chakra-ui/react"
 import { cardSlotRecipe } from "./card.recipe"
 import { buttonRecipe } from "./button.recipe"
 

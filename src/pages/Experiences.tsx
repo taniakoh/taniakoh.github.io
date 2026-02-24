@@ -1,18 +1,9 @@
-import DefaultLayout from "@/layouts/default";
 import {
   VStack,
   Text,
   HStack,
-  Grid,
-  GridItem,
   Card,
-  Image,
-  Link,
-  Button,
-  Separator,
 } from "@chakra-ui/react";
-import { MapPin, Download } from "lucide-react";
-import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 import TesselyLogo from "@/assets/Tessely.svg";
 import InfineonLogo from "@/assets/Infineon-Logo.svg";
 import NannyMoonLogo from "@/assets/nannymoon.png";
