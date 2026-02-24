@@ -4,9 +4,22 @@ import {
   HStack,
   Card,
 } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 import TesselyLogo from "@/assets/Tessely.svg";
 import InfineonLogo from "@/assets/Infineon-Logo.svg";
 import NannyMoonLogo from "@/assets/nannymoon.png";
+
+const MotionCard = motion.create(Card.Root as any);
+
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.15, delayChildren: 0.1 } },
+};
+
+const cardVariant = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
+};
 
 export default function ExperiencesSection() {
   return (
@@ -21,8 +34,14 @@ export default function ExperiencesSection() {
         experiences
       </Card.Header>
       <Card.Body h="100%">
-        <VStack gap={4} h="100%">
-          <Card.Root variant="elevatedwhite" h="100%" w="100%" p={4}>
+        <motion.div
+          style={{ display: "flex", flexDirection: "column", gap: "1rem", height: "100%" }}
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <MotionCard variants={cardVariant} variant="elevatedwhite" h="100%" w="100%" p={4}>
             <Card.Body h="100%">
               <VStack
                 gap={4}
@@ -48,8 +67,9 @@ export default function ExperiencesSection() {
                 <Text fontSize="lg">Oct 2026 - May 2026</Text>
               </VStack>
             </Card.Body>
-          </Card.Root>
-          <Card.Root variant="elevatedwhite" h="100%" w="100%" p={4}>
+          </MotionCard>
+
+          <MotionCard variants={cardVariant} variant="elevatedwhite" h="100%" w="100%" p={4}>
             <Card.Body h="100%">
               <VStack
                 gap={4}
@@ -75,8 +95,9 @@ export default function ExperiencesSection() {
                 <Text fontSize="lg">August 2024 - December 2024</Text>
               </VStack>
             </Card.Body>
-          </Card.Root>
-          <Card.Root variant="elevatedwhite" h="100%" w="100%" p={4}>
+          </MotionCard>
+
+          <MotionCard variants={cardVariant} variant="elevatedwhite" h="100%" w="100%" p={4}>
             <Card.Body h="100%">
               <VStack
                 gap={4}
@@ -102,8 +123,8 @@ export default function ExperiencesSection() {
                 <Text fontSize="lg">May 2023 - January 2024</Text>
               </VStack>
             </Card.Body>
-          </Card.Root>
-        </VStack>
+          </MotionCard>
+        </motion.div>
       </Card.Body>
     </Card.Root>
   );
