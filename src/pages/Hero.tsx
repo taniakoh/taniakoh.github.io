@@ -6,7 +6,6 @@ import {
   GridItem,
   Card,
   Link,
-  Icon,
   Button,
   Separator,
 } from "@chakra-ui/react";
@@ -134,9 +133,7 @@ export default function HeroSection() {
               <Card.Body>
                   <VStack gap={6} align="start">
                     <HStack>
-                      <Icon w={"32px"} h={"32px"} color="#005E8A">
-                        <HiMapPin />
-                      </Icon>
+                      <HiMapPin size={32} color="#005E8A" />
                       <Text fontSize={{ base: "md", md: "lg" }} color="#595858" fontWeight={"light"}>
                       Y4 @ Singapore University of Technology and Design
                       (SUTD)
@@ -155,26 +152,20 @@ export default function HeroSection() {
               <Card.Body justifyContent={"center"}>
                 <HStack gap={{ base: 4, md: 12 }} align="center" justifyContent={{base:"center", md:"start"}}>
                   <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.2 }}>
-                    <Link href="https://www.linkedin.com/in/tania-koh-tze-ern/" target="_blank">
-                      <Icon w={{base:"32px",md:"48px"}} h={{base:"32px",md:"48px"}} color="#005E8A">
-                        <FaLinkedin />
-                      </Icon>
+                    <Link href="https://www.linkedin.com/in/tania-koh-tze-ern/" target="_blank" color="#005E8A" fontSize={{base:"32px",md:"48px"}} display="flex">
+                      <FaLinkedin size="1em" />
                     </Link>
                   </motion.div>
 
                   <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.2 }}>
-                    <Link href="https://github.com/taniakoh" target="_blank">
-                      <Icon w={{base:"32px",md:"48px"}} h={{base:"32px",md:"48px"}} color="#005E8A">
-                        <FaGithub />
-                      </Icon>
+                    <Link href="https://github.com/taniakoh" target="_blank" color="#005E8A" fontSize={{base:"32px",md:"48px"}} display="flex">
+                      <FaGithub size="1em" />
                     </Link>
                   </motion.div>
 
                   <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.2 }}>
-                    <Link href="mailto:taniakohtzeern@gmail.com">
-                      <Icon w={{base:"32px",md:"48px"}} h={{base:"32px",md:"48px"}} color="#005E8A">
-                        <FaEnvelope />
-                      </Icon>
+                    <Link href="mailto:taniakohtzeern@gmail.com" color="#005E8A" fontSize={{base:"32px",md:"48px"}} display="flex">
+                      <FaEnvelope size="1em" />
                     </Link>
                   </motion.div>
 
