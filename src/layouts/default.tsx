@@ -11,7 +11,8 @@ export default function DefaultLayout({
     <Stack justifySelf="center" className="relative flex flex-col min-h-screen">
       <Navbar />
       <main
-        className="container mx-auto max-w-7xl px-6 flex-grow"
+        className="container mx-auto max-w-7xl px-6 flex-grow align-self-center" style={{
+    alignSelf: "center"}}
       >
         {children}
       </main>

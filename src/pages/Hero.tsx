@@ -35,7 +35,7 @@ const profileImageVariants = {
 
 export default function HeroSection() {
   return (
-      <Grid templateColumns={{ base: "1fr", lg: "1fr 2fr" }} gap={6} p={6} alignItems="stretch" height={{ lg: "580px" }}>
+      <Grid templateColumns={{ base: "1fr", lg: "1fr 2fr" }} gap={6} px={6} w="100%" alignItems="stretch" height={{ lg: "580px" }}>
         {/* Left column - Profile */}
         <MotionGridItem
           display="flex"
@@ -47,7 +47,7 @@ export default function HeroSection() {
             variant="elevatedblue"
             h="100%"
             w="100%"
-            p={{ base: 2, md: 4 }}
+            
             initial="rest"
             animate="rest"
             whileHover="hover"
@@ -152,7 +152,7 @@ export default function HeroSection() {
 
             {/* Social links card */}
             <MotionCard variants={cardVariant} px={{ base: 2, md: 12 }} py={2} variant="elevatedwhite" w="100%" flex={1} justifyContent={{base:"center", md:"start"}}>
-              <Card.Body>
+              <Card.Body justifyContent={"center"}>
                 <HStack gap={{ base: 4, md: 12 }} align="center" justifyContent={{base:"center", md:"start"}}>
                   <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.2 }}>
                     <Link href="https://www.linkedin.com/in/tania-koh-tze-ern/" target="_blank">

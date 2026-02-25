@@ -16,6 +16,12 @@ export const cardSlotRecipe = defineSlotRecipe({
         bg:"#FFFFFF",
         boxShadow: "lg",
         }
+      },
+      subtlewhite:{
+        root:{
+        bg:"#F8F8F8",
+        // boxShadow: "sm",
+        }
       }
     },
   },
