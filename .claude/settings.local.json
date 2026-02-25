@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(cd \"C:/Users/tanta/Downloads/Codin/taniakoh.github.io\" && npx @chakra-ui/cli typegen ./src/theme/theme.ts 2>&1)",
-      "Bash(node -e:*)"
-    ]
-  }
-}
