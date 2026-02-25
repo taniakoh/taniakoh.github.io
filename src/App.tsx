@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
 import IndexPage from "@/pages/index";
+import WipPage from "@/pages/wip";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
 
 function App() {
@@ -25,6 +26,8 @@ function App() {
       </AnimatePresence>
       <Routes>
         <Route element={<IndexPage />} path="/" />
+        <Route element={<WipPage />} path="/wip" />
+        <Route element={<WipPage />} path="/more" />
       </Routes>
     </>
   );

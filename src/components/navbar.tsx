@@ -10,6 +10,8 @@ export const Navbar = () => {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [activeHash, setActiveHash] = useState("#about");
+  const isHome = location.pathname === "/";
+  const resolveHref = (href: string) => href.startsWith("#") && !isHome ? `/${href}` : href;
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
   const closeMenu = () => setIsOpen(false);
@@ -60,7 +62,7 @@ export const Navbar = () => {
           return (
             <Link
               key={item.href}
-              href={item.href}
+              href={resolveHref(item.href)}
               px={5}
               py={1.5}
               borderRadius="full"
@@ -152,7 +154,7 @@ export const Navbar = () => {
                   return (
                     <Link
                       key={item.href}
-                      href={item.href}
+                      href={resolveHref(item.href)}
                       px={5}
                       py={1.5}
                       borderRadius="full"

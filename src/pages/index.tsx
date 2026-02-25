@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import DefaultLayout from "@/layouts/default";
 import { Box, VStack} from "@chakra-ui/react";
 import HeroSection from "./Hero";
@@ -5,6 +7,14 @@ import ExperiencesSection from "./Experiences";
 import ProjectsSection from "./Projects";
 
 export default function IndexPage() {
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (!hash) return;
+    const el = document.getElementById(hash.slice(1));
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  }, [hash]);
+
   return (
     <DefaultLayout>
       <VStack gap={16} py={4}>

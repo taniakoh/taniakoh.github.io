@@ -1,6 +1,7 @@
 import TesselyLogo from "@/assets/Tessely.svg";
 import InfineonLogo from "@/assets/Infineon-Logo.svg";
 import NannyMoonLogo from "@/assets/nannymoon.png";
+import mendisphereLogo from "@/assets/mendispherelogo.png";
 
 export interface Experience {
   role: string;
@@ -10,6 +11,7 @@ export interface Experience {
   logo: string;
   logoAlt: string;
   logoDesktopHeight?: string; // defaults to "40px" if omitted
+  href?: string;
 }
 
 export const experiences: Experience[] = [
@@ -21,6 +23,7 @@ export const experiences: Experience[] = [
     date: "Oct 2026 - May 2026",
     logo: TesselyLogo,
     logoAlt: "Tessely",
+    href: "https://tessely-app.vercel.app",
   },
   {
     role: "Full Stack Software Developer Intern",
@@ -31,6 +34,7 @@ export const experiences: Experience[] = [
     logo: InfineonLogo,
     logoAlt: "Infineon",
     logoDesktopHeight: "24px",
+    href: "/wip",
   },
   {
     role: "Software Engineering Intern (Automation & Integration)",
@@ -40,5 +44,17 @@ export const experiences: Experience[] = [
     date: "May 2023 - January 2024",
     logo: NannyMoonLogo,
     logoAlt: "Nanny Moon",
+    href: "/wip",
+  },
+  {
+    role: "UX Engineer Volunteer",
+    company: "Mendisphere, better.sg",
+    description:
+      "Designed and developed interfaces using Figma, React.js, Material UI, and TypeScript, integrating Firebase backend services to streamline grant and resource access for nonprofit mental health organisations",
+    date: "October 2025 - Present",
+    logo: mendisphereLogo,
+    logoAlt: "Mendisphere",
+    logoDesktopHeight: "16px",
+    href: "https://github.com/bettersg/Mendisphere",
   },
 ];
